@@ -14,16 +14,16 @@ class App extends Component {
     return (
       <Wrapper>
         <Header>
-          <div>
-            <img className="image" src={require('../style/img/React.png')} alt='' />
-            <img className="image" src={require('../style/img/Mongo.png')} alt='' />
-            <img className="image" src={require('../style/img/GraphQL.png')} alt='' />
-          </div>
+
+          <img className="image" src={require('../style/img/React.png')} alt='' />
+          <img className="image" src={require('../style/img/Mongo.png')} alt='' />
+          <img className="image" src={require('../style/img/GraphQL.png')} alt='' />
+
         </Header>
         <ul>
           {this.getEmployees()}
         </ul>
-        REACT - MONGODB - GRAPHQL - TEMPLATE
+        REACT - MONGODB - GRAPHQL
       </Wrapper>
     );
   }
@@ -45,11 +45,11 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
       height: 100vh;
-      background-color:grey;
+      background: linear-gradient(black, grey);
       color: white;
       justify-content:flex-start;
       align-items: center;
-      font-size: 50px;
+      font-size: 5vw;
     `;
 
 const Header = styled.div`
@@ -59,4 +59,10 @@ display:flex;
       justify-content: center;
       align-items: center;
       width: 100vw;
+
+      @media screen and (max-width: 550px) {
+        flex-direction: column;
+        flex-basis: 550px;
+        
+        }
 `;
