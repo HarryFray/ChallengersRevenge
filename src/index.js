@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 import App from './components/App';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 
 const client = new ApolloClient({
@@ -15,11 +15,11 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
       <Switch>
-        <Route exact path='/' component={App} />
+        <Route exact path="/" component={App} />
       </Switch>
     </BrowserRouter>
   </ApolloProvider>
 
-  , document.getElementById('root')
+  , document.getElementById('root'),
 );
 

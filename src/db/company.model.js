@@ -8,8 +8,8 @@ const CompanySchema = mongoose.Schema({
   },
   employee: [{
     type: Schema.Types.ObjectId,
-    ref: 'employee'
-  }]
+    ref: 'employee',
+  }],
 });
 
 const Employee = mongoose.model('employee', CompanySchema);
