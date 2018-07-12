@@ -20,7 +20,8 @@
 }
 
 .link:hover {
-  color: #379683
+  color: #379683;
+  cursor: pointer;
 }
 
 .shine:hover {

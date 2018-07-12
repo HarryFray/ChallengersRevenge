@@ -14,7 +14,8 @@ class Nav extends Component {
         <div style={{ 'flex': '1' }} />
         <Links>
           <div><Link className='link' to="/">Main</Link></div>
-          <div><Link className='link' to="/other">Other</Link></div>
+          <div><Link className='link' to="/new">New</Link></div>
+          <div className='link'>Top</div>
         </Links>
       </Wrapper>
     );
@@ -47,7 +48,7 @@ const Title = styled.header`
 const Links = styled.div`
   display: flex;
   position: fixed;
-  right: 50px;
+  right: 10px;
     div {
       padding: 10px;
     }

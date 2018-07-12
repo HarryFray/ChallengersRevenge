@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import Other from './Other';
+import NewPost from './NewPost';
 import Main from './Main';
 import Nav from './Nav';
 
@@ -15,7 +15,7 @@ class Content extends Component {
           <Nav />
           <ContentWrapper>
             <Route exact path="/" component={Main} />
-            <Route path="/other" component={Other} />
+            <Route path="/new" component={NewPost} />
           </ContentWrapper>
         </Wrapper>
       </BrowserRouter>
