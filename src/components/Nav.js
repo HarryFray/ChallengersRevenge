@@ -8,8 +8,8 @@ class Nav extends Component {
   render(props) {
     return (
       <Wrapper>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/other">Other</Link></li>
+        <div><Link to="/">Main</Link></div>
+        <div><Link to="/other">Other</Link></div>
       </Wrapper>
     );
   }
@@ -19,5 +19,13 @@ export default Nav
 
 
 const Wrapper = styled.nav`
-color: green;
-`
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+
+  div {
+    padding:10px;
+  }
+`;

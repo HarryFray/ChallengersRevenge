@@ -1,5 +1,13 @@
 
+  body {
+    margin: 0;
+  }
+  
   .heading {
     font-family: 'karla', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    
 }
 
