@@ -29,11 +29,11 @@ const Wrapper = styled.div`
   display:flex;
   flex-direction: column;
   flex: 1;
+  min-height:2000px;
 `;
 
 const ContentWrapper = styled.div`
-  flex: 1;
-  background-color:grey;
+  flex:1;
   display:flex;
   justify-content: center;
 `;

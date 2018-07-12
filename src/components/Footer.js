@@ -4,12 +4,12 @@ import '../style/style.css';
 
 const Footer = () => (
   <Wrapper>
-    <h2>Footer</h2>
   </Wrapper>
 )
 
 export default Footer
 
 const Wrapper = styled.div`
-  background-color: green;
+  background-color: #05386B;
+  height: 100px;
 `;

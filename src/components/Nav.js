@@ -8,8 +8,14 @@ class Nav extends Component {
   render(props) {
     return (
       <Wrapper>
-        <div><Link to="/">Main</Link></div>
-        <div><Link to="/other">Other</Link></div>
+        <Title className="shine">
+          Challengers Revenge
+        </Title>
+        <div style={{ 'flex': '1' }} />
+        <Links>
+          <div><Link className='link' to="/">Main</Link></div>
+          <div><Link className='link' to="/other">Other</Link></div>
+        </Links>
       </Wrapper>
     );
   }
@@ -19,13 +25,30 @@ export default Nav
 
 
 const Wrapper = styled.nav`
-  background-color: green;
+  background-color: #05386B;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;
+  width:100%;
+  height: 55px;
+`;
 
-  div {
-    padding:10px;
-  }
+const Title = styled.header`
+      display: flex;
+      color: #edf5e1;
+      font-size: 50px;
+      letter-spacing: -5px;
+      padding-bottom: 9px;
+      text-decoration: underline;
+      padding-right: 10px;
+    `;
+
+const Links = styled.div`
+  display: flex;
+  position: fixed;
+  right: 50px;
+    div {
+      padding: 10px;
+    }
 `;
