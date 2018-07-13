@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
-const EmployeeSchema = mongoose.Schema({
-  name: {
+const PostSchema = mongoose.Schema({
+  title: {
     type: String,
     required: true,
     unique: true,
   },
-  info: {
+  content: {
     type: String,
   },
 });
 
-const Employee = mongoose.model('employee', EmployeeSchema);
+const Post = mongoose.model('post', PostSchema);

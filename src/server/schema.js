@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 const mongoose = require('mongoose');
-const employeeModal = require('../db/employee.model');
+const PostModal = require('../db/post.model');
 
 const {
   GraphQLObjectType,
@@ -11,32 +11,32 @@ const {
   GraphQLID,
 } = graphql;
 
-const Employee = mongoose.model('employee');
+const Post = mongoose.model('post');
 
 
-const EmployeeType = new GraphQLObjectType({
-  name: 'Employee',
+const PostType = new GraphQLObjectType({
+  name: 'Post',
   fields: () => ({
     id: { type: GraphQLID },
-    name: { type: GraphQLString },
-    info: { type: GraphQLString },
+    title: { type: GraphQLString },
+    content: { type: GraphQLString },
   }),
 });
 
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: () => ({
-    employees: {
-      type: new GraphQLList(EmployeeType),
+    posts: {
+      type: new GraphQLList(PostType),
       resolve() {
-        return Employee.find({});
+        return Post.find({});
       },
     },
-    employee: {
-      type: EmployeeType,
+    post: {
+      type: PostType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
       resolve(parentValue, { id }) {
-        return Employee.findById(id);
+        return Post.findById(id);
       },
     },
   }),
@@ -45,14 +45,14 @@ const RootQuery = new GraphQLObjectType({
 const mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
-    addEmployee: {
-      type: EmployeeType,
+    addPost: {
+      type: PostType,
       args: {
-        name: { type: new GraphQLNonNull(GraphQLString) },
-        info: { type: GraphQLString },
+        title: { type: GraphQLString },
+        content: { type: GraphQLString },
       },
-      resolve(parentValue, { name, info }) {
-        return new Employee({ name, info }).save();
+      resolve(parentValue, { title, content }) {
+        return new Post({ title, content }).save();
       },
     },
   },
