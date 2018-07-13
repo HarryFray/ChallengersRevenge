@@ -42,7 +42,7 @@ const Title = styled.header`
       letter-spacing: -5px;
       padding-bottom: 9px;
       text-decoration: underline;
-      padding-right: 10px;
+      padding: 0 10px 0 5px;
     `;
 
 const Links = styled.div`
