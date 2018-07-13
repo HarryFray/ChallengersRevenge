@@ -1,10 +1,9 @@
-# REACT GRAPHQL MONGODB TEMPLATE
+# To all the code challenges I failed, here's to you
 
 ```bash
-$ npm install
-$ npm run dev                  # Spins up server on localhost:8080, along with MongoDB instance
-$ npm run lint                 # airbnb Linter
-$ npm run lintFix              # airbnb Linter auto fix
+$ yarn install
+$ yarn run dev                  # Spins up server on localhost:8080, along with MongoDB instance
+$ yarn run lint                 # airbnb Linter
+$ yarn run lintFix              # airbnb Linter auto fix
 ```
 
-### Create .env file with DB_PASS=YOUR_MLAB_URI

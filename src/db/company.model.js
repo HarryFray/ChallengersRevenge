@@ -6,10 +6,10 @@ const CompanySchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  employee: [{
+  post: [{
     type: Schema.Types.ObjectId,
-    ref: 'employee',
+    ref: 'post',
   }],
 });
 
-const Employee = mongoose.model('employee', CompanySchema);
+const Post = mongoose.model('post', CompanySchema);

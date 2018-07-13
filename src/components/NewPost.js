@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import '../style/style.css';
-
-class New extends Component {
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+class NewPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +12,14 @@ class New extends Component {
   }
 
   onSubmit = (e) => {
+    console.log(this.state.content, this.state.title)
     e.preventDefault();
-
+    this.props.mutate({
+      variables: {
+        title: this.state.title,
+        content: this.state.content
+      }
+    })
   }
 
   render() {
@@ -33,9 +39,16 @@ class New extends Component {
         </form>
         <button onClick={this.onSubmit}>Submit</button>
       </div>
-
     )
   }
 }
 
-export default New
+const mutation = gql`
+ mutation AddPost($title: String, $content: String){
+  addPost(title: $title, content: $content) {
+    title
+    content
+  }
+}`;
+
+export default graphql(mutation)(NewPost);
