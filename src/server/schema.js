@@ -57,7 +57,14 @@ const mutation = new GraphQLObjectType({
         return new Post({ title, content }).save();
       },
     },
-  },
+    likePost: {
+      type: PostType,
+      args: { id: { type: GraphQLID } },
+      resolve(parentValue, { id }) {
+        return Post.like(id);
+      }
+    }
+  }
 });
 
 module.exports = new GraphQLSchema({

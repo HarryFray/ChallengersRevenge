@@ -8,8 +8,8 @@ class Nav extends Component {
   render(props) {
     return (
       <Wrapper>
-        <Title className="shine">
-          Challengers Revenge
+        <Title>
+          <Link className="title" to="/">Challengers Revenge</Link>
         </Title>
         <div style={{ 'flex': '1' }} />
         <Links>
@@ -32,17 +32,11 @@ const Wrapper = styled.nav`
   align-items: center;
   height: 30px;
   width:100%;
-  height: 55px;
+  height: 60px;
 `;
 
 const Title = styled.header`
       display: flex;
-      color: #edf5e1;
-      font-size: 50px;
-      letter-spacing: -5px;
-      padding-bottom: 9px;
-      text-decoration: underline;
-      padding: 0 10px 0 5px;
     `;
 
 const Links = styled.div`

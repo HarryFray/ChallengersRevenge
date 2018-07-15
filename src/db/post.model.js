@@ -14,7 +14,7 @@ PostSchema.statics.like = function (id) {
 
   return Post.findById(id)
     .then(post => {
-      ++post.likes;
+      ++post.stars;
       return post.save();
     })
 }
