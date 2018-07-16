@@ -24,7 +24,6 @@ class Nav extends Component {
 
 export default Nav
 
-
 const Wrapper = styled.nav`
   background-color: #05386B;
   display: flex;

@@ -5,8 +5,8 @@ import '../style/style.css';
 import PostQuery from '../queries/PostQuery';
 import gql from 'graphql-tag';
 
-class Main extends Component {
 
+class PostsList extends Component {
 
   onPostLike(id, stars) {
     this.props.mutate({
@@ -32,7 +32,8 @@ class Main extends Component {
           <h5>July 10, 2018</h5>
           <Upvotes>
             <Star onClick={() => this.onPostLike(id, stars)} />
-            {stars}
+            <StarCount>{stars}</StarCount>
+
           </Upvotes>
         </div>
       )
@@ -52,16 +53,16 @@ class Main extends Component {
 }
 
 const mutation = gql`
-mutation LikePost($id: ID!){
-  LikePost(id: $id) {
+mutation likePost($id: ID!){
+  likePost(id: $id) {
     id
-    likes
+    stars
   }
 }
 `;
 
 export default graphql(mutation)(
-  graphql(PostQuery)(Main)
+  graphql(PostQuery)(PostsList)
 );
 
 const Wrapper = styled.div`
@@ -76,6 +77,7 @@ hr {
 }
 h1 {
   letter-spacing: -1px;
+  margin-bottom: 0px;
   :hover{
     text-decoration:underline;
     cursor: pointer;
@@ -85,12 +87,18 @@ h1 {
 h5 {
   margin: 0 0 15px 0;
 }
+p {
+  line-height: 1.6;
+  font-size: 16px;
+}
 `;
 
 const Upvotes = styled.div`
   display: flex;
   margin-left: 10px;
   align-items: center;
+  height: 35px;
+  padding-bottom: 50px;
 `;
 
 const Star = styled.div`
@@ -114,6 +122,10 @@ transition: width .5s ease, height .5s ease;
 :active {
   background: white;
 }
+`;
+
+const StarCount = styled.div`
+  margin-left: 0px;
 `;
 
 
