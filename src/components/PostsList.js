@@ -148,4 +148,4 @@ const Icon = styled.img`
 // <p>I created this site not out of spite but as a way for me to learn and grow. Every time I fail a code challenge, I will add the tech
 // that I failed to use properly to this site. This will be a length process as there are many tough challenges ahead. Maybe failed is a strong word....
 // Painfully learned? in any case I hope this is entertaining stuff. ps. im not the best in spelling
-// or grammer so this will be a practice in that as well. enjoy!</p>
+// or grammer so this will be a practice in that as well. enjoy!</p>as
