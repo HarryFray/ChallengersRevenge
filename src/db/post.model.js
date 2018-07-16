@@ -8,7 +8,6 @@ const PostSchema = mongoose.Schema({
   content: { type: String },
   stars: { type: Number, default: 0 }
 });
-
 PostSchema.statics.like = function (id) {
   const Post = mongoose.model('post');
 

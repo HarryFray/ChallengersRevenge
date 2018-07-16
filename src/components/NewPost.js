@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../style/style.css';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-import PostQuery from '../queries/PostQuery';
 class NewPost extends Component {
   constructor(props) {
     super(props);
@@ -13,13 +12,13 @@ class NewPost extends Component {
   }
 
   onSubmit = (e) => {
+    console.log(this.state.content, this.state.title)
     e.preventDefault();
     this.props.mutate({
       variables: {
         title: this.state.title,
         content: this.state.content
       },
-      refetchQueries: [{ PostQuery }]
     })
   }
 
