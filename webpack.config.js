@@ -27,9 +27,16 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       },
       {
-        test: /\.(pdf|jpg|png|gif|svg|ico)$/,
-        use: ['url-loader, file-loader']
-      },
+        test: /\.(png|jpg|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
+      }
     ]
   },
   devServer: {

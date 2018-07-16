@@ -5,6 +5,11 @@ import '../style/style.css';
 import PostQuery from '../queries/PostQuery';
 import gql from 'graphql-tag';
 
+import FB from '../style/icons/facebook.svg';
+import Link from '../style/icons/link.svg';
+import Git from '../style/icons/git.png';
+
+
 
 class PostsList extends Component {
 
@@ -33,7 +38,12 @@ class PostsList extends Component {
           <Upvotes>
             <Star onClick={() => this.onPostLike(id, stars)} />
             <StarCount>{stars}</StarCount>
-
+            <div style={{ 'flex': '1' }} />
+            <div>
+              <Icon src={FB} />
+              <Icon src={Link} />
+              <Icon src={Git} />
+            </div>
           </Upvotes>
         </div>
       )
@@ -97,6 +107,7 @@ const Upvotes = styled.div`
   display: flex;
   margin-left: 10px;
   align-items: center;
+  justify-content: space-between;
   height: 35px;
   padding-bottom: 50px;
 `;
@@ -128,7 +139,11 @@ const StarCount = styled.div`
   margin-left: 0px;
 `;
 
-
+const Icon = styled.img`
+ height: 30px;
+ cursor: pointer;
+ padding: 2px;
+`;
 
 // <p>I created this site not out of spite but as a way for me to learn and grow. Every time I fail a code challenge, I will add the tech
 // that I failed to use properly to this site. This will be a length process as there are many tough challenges ahead. Maybe failed is a strong word....
