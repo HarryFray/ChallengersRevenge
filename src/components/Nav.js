@@ -14,11 +14,10 @@ class Nav extends Component {
   onClickScroll() {
     scroll.top(page, 0, (err, scrollTop) => {
       if (err) {
-        scroll.top(page, 10, { duration: 150 }, (err) => {
-          scroll.top(page, 0, { duration: 100 })
+        scroll.top(page, 6, { duration: 200 }, (err) => {
+          scroll.top(page, 0, { duration: 150 }, (err) => {
+          })
         })
-
-
       }
     })
   }
