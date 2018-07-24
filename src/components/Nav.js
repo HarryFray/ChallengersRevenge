@@ -2,9 +2,21 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
+var scroll = require('scroll')
+var page = require('scroll-doc')()
+var ease = require('ease-component')
+
 import '../style/style.css';
 
 class Nav extends Component {
+
+  onClickScroll() {
+    scroll.top(page, 0, function (err, scrollTop) {
+      if (err) { console.log(err) }
+    })
+  }
+
   render(props) {
     return (
       <Wrapper>
@@ -15,7 +27,7 @@ class Nav extends Component {
         <Links>
           <div><Link className='link' to="/">Main</Link></div>
           <div><Link className='link' to="/new">New</Link></div>
-          <div className='link'>Top</div>
+          <div onClick={this.onClickScroll} className='link'>Top</div>
         </Links>
       </Wrapper>
     );

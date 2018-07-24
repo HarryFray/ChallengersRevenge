@@ -49,6 +49,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^0.28.11",
     "dotenv": "^6.0.0",
+    "ease-component": "^1.0.0",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "file-loader": "^1.1.11",
@@ -62,6 +63,8 @@
     "react-dom": "^16.4.0",
     "react-router-dom": "^4.3.1",
     "react-svg-loader": "^2.1.0",
+    "scroll": "^2.0.3",
+    "scroll-doc": "^0.2.1",
     "style-loader": "^0.21.0",
     "styled-components": "^3.3.3",
     "url-loader": "^1.0.1"
