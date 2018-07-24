@@ -27,12 +27,12 @@ class NewPost extends Component {
       <div>
         <form>
           <label>Title</label>
-          <input
+          <input className='formTitle'
             onChange={e => this.setState({ title: e.target.value })}
             value={this.state.title}
           />
           <label>Content</label>
-          <input
+          <input className='formContent'
             onChange={e => this.setState({ content: e.target.value })}
             value={this.state.content}
           />
