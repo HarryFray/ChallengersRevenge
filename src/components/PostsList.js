@@ -28,13 +28,18 @@ class PostsList extends Component {
   }
 
   getAllPosts() {
-    return this.props.data.posts.map(({ title, content, id, stars }) => {
+    return this.props.data.posts.map(({ title, content, id, stars, date }) => {
+
+      const day = date.slice(8, 10);
+      const month = date.slice(4, 8);
+      const year = date.slice(10, 15);
+
       return (
         <div key={id}>
           <h1>{title}</h1>
           <p>{content}</p>
           <hr />
-          <h5>July 10, 2018</h5>
+          <h5>{`${month} ${day}, ${year}`}</h5>
           <Upvotes>
             <Star onClick={() => this.onPostLike(id, stars)} />
             <StarCount>{stars}</StarCount>
@@ -144,8 +149,3 @@ const Icon = styled.img`
  cursor: pointer;
  padding: 2px;
 `;
-
-// <p>I created this site not out of spite but as a way for me to learn and grow. Every time I fail a code challenge, I will add the tech
-// that I failed to use properly to this site. This will be a length process as there are many tough challenges ahead. Maybe failed is a strong word....
-// Painfully learned? in any case I hope this is entertaining stuff. ps. im not the best in spelling
-// or grammer so this will be a practice in that as well. enjoy!</p>as

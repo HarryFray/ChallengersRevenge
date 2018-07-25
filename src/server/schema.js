@@ -9,7 +9,8 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLID,
-  GraphQLInt
+  GraphQLInt,
+  GraphQLFloat
 } = graphql;
 
 const Post = mongoose.model('post');
@@ -21,7 +22,8 @@ const PostType = new GraphQLObjectType({
     id: { type: GraphQLID },
     title: { type: GraphQLString },
     content: { type: GraphQLString },
-    stars: { type: GraphQLInt }
+    stars: { type: GraphQLInt },
+    date: { type: GraphQLString }
   }),
 });
 
