@@ -27,9 +27,7 @@ class Nav extends Component {
       <div>
         <Wrapper>
           <Title>
-            <Link className="title" to="/">
-              Challengers Revenge
-            </Link>
+            <Link className="title" to="/">Challengers Revenge</Link>
           </Title>
           <div style={{ 'flex': '1' }} />
           <Links>

@@ -107,7 +107,11 @@ p {
 }
 
 @media only screen and (max-width: 1000px) {
+<<<<<<< HEAD
   padding: 0 100px 0 50px;
+=======
+  padding: 0 50px 0 50px;
+>>>>>>> a90ce3bbc5ad7c782c719472e27d5c4448a7f7f6
 }
 `;
 
