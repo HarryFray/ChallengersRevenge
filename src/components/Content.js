@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, StaticRouter, Route, Link } from 'react-router-dom';
 import NewPost from './NewPost';
 import PostsList from './PostsList';
 import Nav from './Nav';
@@ -10,7 +10,7 @@ import '../style/style.css';
 class Content extends Component {
   render(props) {
     return (
-      <BrowserRouter>
+      <StaticRouter>
         <Wrapper >
           <Nav />
           <ContentWrapper>
@@ -18,7 +18,7 @@ class Content extends Component {
             <Route path="/new" component={NewPost} />
           </ContentWrapper>
         </Wrapper>
-      </BrowserRouter>
+      </StaticRouter>
     );
   }
 }
