@@ -17,6 +17,7 @@
   text-decoration: none;
   font-size: 24px;
   color: #edf5e1;
+  transition: 250ms;
 }
 
 .link:hover {
@@ -31,6 +32,14 @@
   letter-spacing: -5px;
   text-decoration: underline;
   padding: 0 10px 5px 5px;
+
+  
+}
+
+@media only screen and (max-width: 500px) {
+  .title{
+    font-size: 10vw;
+  }
 }
 
 input {
@@ -50,6 +59,25 @@ form {
 
 .formTitle {
   height: 24px;
+}
+
+
+.underline {
+  display: inline-block;
+}
+
+.underline:after {
+  display: inline-block;
+  content: '';
+  width: 0px;
+  height: 1px;
+  display: block;
+  background: black;
+  transition: .5s;  
+}
+
+.underline:hover:after {
+  width: 100%;
 }
 
 

@@ -36,7 +36,7 @@ class PostsList extends Component {
 
       return (
         <div key={id}>
-          <h1>{title}</h1>
+          <h1 className='underline'>{title}</h1>
           <p>{content}</p>
           <hr />
           <h5>{`${month} ${day}, ${year}`}</h5>
@@ -93,10 +93,9 @@ hr {
 h1 {
   letter-spacing: -1px;
   margin-bottom: 0px;
-  :hover{
-    text-decoration:underline;
-    cursor: pointer;
-  }
+}
+h1:hover{
+  cursor: pointer;
 }
 
 h5 {
@@ -105,6 +104,10 @@ h5 {
 p {
   line-height: 1.6;
   font-size: 16px;
+}
+
+@media only screen and (max-width: 1000px) {
+  padding: 0 100px 0 50px;
 }
 `;
 
@@ -123,17 +126,13 @@ margin-right: 10px;
 height:30px;
 width: 30px;
 clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-
--webkit-transition: width .5s ease, height .5s ease;
--moz-transition: width .5s ease, height .5s ease;
--o-transition: width .5s ease, height .5s ease;
--ms-transition: width .5s ease, height .5s ease;
-transition: width .5s ease, height .5s ease;
+transition: 500ms;
 
 :hover {
   cursor: pointer;
   height:35px;
   width: 35px;
+  
 }
 :active {
   background: white;

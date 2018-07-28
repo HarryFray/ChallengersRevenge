@@ -24,17 +24,24 @@ class Nav extends Component {
 
   render(props) {
     return (
-      <Wrapper>
-        <Title>
-          <Link className="title" to="/">Challengers Revenge</Link>
-        </Title>
-        <div style={{ 'flex': '1' }} />
-        <Links>
-          <div><Link className='link' to="/">Main</Link></div>
-          <div><Link className='link' to="/new">New</Link></div>
-          <div onClick={this.onClickScroll} className='link'>Top</div>
-        </Links>
-      </Wrapper>
+      <div>
+        <Wrapper>
+          <Title>
+            <Link className="title" to="/">
+              Challengers Revenge
+            </Link>
+          </Title>
+          <div style={{ 'flex': '1' }} />
+          <Links>
+            <div><Link className='link' to="/">Main</Link></div>
+            <div><Link className='link' to="/new">New</Link></div>
+            <div onClick={this.onClickScroll} className='link'>Top</div>
+          </Links>
+        </Wrapper>
+        <SolidGreyLine />
+
+
+      </div>
     );
   }
 }
@@ -49,6 +56,11 @@ const Wrapper = styled.nav`
   height: 30px;
   width:100%;
   height: 60px;
+
+  @media only screen and (max-width: 1000px) {
+    height: 90px;
+    align-items: flex-start;
+  }
 `;
 
 const Title = styled.header`
@@ -60,6 +72,21 @@ const Links = styled.div`
   position: fixed;
   right: 10px;
     div {
-      padding: 10px;
+      padding-right: 10px;
     }
+
+    @media only screen and (max-width: 1000px) {
+      flex-direction: column;
+      padding-top: 0px;
+    }
+`;
+
+const SolidGreyLine = styled.div`
+  height:10px;
+  background-color:#379683;
+`;
+
+const SolidCreamLine = styled.div`
+  height:10px;
+  background-color:#edf5e1;
 `;
