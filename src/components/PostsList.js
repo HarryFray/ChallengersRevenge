@@ -106,6 +106,10 @@ p {
   line-height: 1.6;
   font-size: 16px;
 }
+
+@media only screen and (max-width: 1000px) {
+  padding: 0 50px 0 50px;
+}
 `;
 
 const Upvotes = styled.div`

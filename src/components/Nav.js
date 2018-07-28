@@ -24,17 +24,22 @@ class Nav extends Component {
 
   render(props) {
     return (
-      <Wrapper>
-        <Title>
-          <Link className="title" to="/">Challengers Revenge</Link>
-        </Title>
-        <div style={{ 'flex': '1' }} />
-        <Links>
-          <div><Link className='link' to="/">Main</Link></div>
-          <div><Link className='link' to="/new">New</Link></div>
-          <div onClick={this.onClickScroll} className='link'>Top</div>
-        </Links>
-      </Wrapper>
+      <div>
+        <Wrapper>
+          <Title>
+            <Link className="title" to="/">Challengers Revenge</Link>
+          </Title>
+          <div style={{ 'flex': '1' }} />
+          <Links>
+            <div><Link className='link' to="/">Main</Link></div>
+            <div><Link className='link' to="/new">New</Link></div>
+            <div onClick={this.onClickScroll} className='link'>Top</div>
+          </Links>
+        </Wrapper>
+        <SolidGreyLine />
+
+
+      </div>
     );
   }
 }
@@ -62,4 +67,14 @@ const Links = styled.div`
     div {
       padding: 10px;
     }
+`;
+
+const SolidGreyLine = styled.div`
+  height:10px;
+  background-color:#379683;
+`;
+
+const SolidCreamLine = styled.div`
+  height:10px;
+  background-color:#edf5e1;
 `;
