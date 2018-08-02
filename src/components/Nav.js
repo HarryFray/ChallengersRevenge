@@ -10,6 +10,20 @@ var ease = require('ease-component')
 import '../style/style.css';
 
 class Nav extends Component {
+  constructor() {
+    super()
+    this.state = {
+      sec: 0
+    }
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() =>
+      this.setState({ sec: new Date().getSeconds() }
+      ), 1000);
+  }
+
+
 
   onClickScroll() {
     scroll.top(page, 0, (err, scrollTop) => {
@@ -22,6 +36,7 @@ class Nav extends Component {
     })
   }
 
+
   render(props) {
     return (
       <div>
@@ -31,6 +46,7 @@ class Nav extends Component {
           </Title>
           <div style={{ 'flex': '1' }} />
           <Links>
+            <div className='link'>{this.state.sec}</div>
             <div><Link className='link' to="/">Main</Link></div>
             <div><Link className='link' to="/new">New</Link></div>
             <div onClick={this.onClickScroll} className='link'>Top</div>

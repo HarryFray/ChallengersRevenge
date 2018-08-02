@@ -8,6 +8,7 @@ import Nav from './Nav';
 import '../style/style.css';
 
 class Content extends Component {
+
   render(props) {
     return (
       <StaticRouter>
