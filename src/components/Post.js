@@ -4,8 +4,12 @@ import { graphql } from 'react-apollo';
 import '../style/style.css';
 import gql from 'graphql-tag';
 import FB from '../style/icons/facebook.svg';
-import Link from '../style/icons/link.svg';
+import link from '../style/icons/link.svg';
 import Git from '../style/icons/git.png';
+import { Link } from 'react-router-dom';
+import query from '../queries/PostQuery';
+
+
 
 class Post extends Component {
 
@@ -24,7 +28,10 @@ class Post extends Component {
   }
 
   render(props) {
-
+    if (this.props.post === undefined) {
+      console.log(this.props.match.params.id)
+      return (<div>.....shit just a sec</div>)
+    }
     const { title, content, id, stars, date } = this.props.post;
 
     const day = date.slice(8, 10);
@@ -33,7 +40,9 @@ class Post extends Component {
 
     return (
       <div key={id}>
-        <h1 className='underline'>{title}</h1>
+        <Link to={`/post/${id}`}>
+          <h1 className='underline'>{title}</h1>
+        </Link>
         <p>{content}</p>
         <hr />
         <h5>{`${month} ${day}, ${year}`}</h5>
@@ -43,7 +52,7 @@ class Post extends Component {
           <div style={{ 'flex': '1' }} />
           <div>
             <Icon src={FB} />
-            <Icon src={Link} />
+            <Icon src={link} />
             <Icon src={Git} />
           </div>
         </Upvotes>
@@ -61,7 +70,10 @@ mutation likePost($id: ID!){
 }
 `;
 
-export default graphql(mutation)(Post);
+export default graphql(mutation)
+graphql(query, {
+  options: (props) => { return { variables: { id: this.props.match.params.id } } }
+})(Post)
 
 const Upvotes = styled.div`
   display: flex;

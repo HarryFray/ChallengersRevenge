@@ -2,12 +2,12 @@ import gql from 'graphql-tag';
 
 export default gql`
 {
-  post(id: $id){
+  posts {
     id
     title
     content
     stars
     date
   }
-}
+} 
 `;

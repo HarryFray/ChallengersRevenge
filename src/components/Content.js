@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import NewPost from './NewPost';
 import PostsList from './PostsList';
 import Nav from './Nav';
+import Post from './Post';
 
 import '../style/style.css';
 
@@ -16,6 +17,7 @@ class Content extends Component {
           <ContentWrapper>
             <Route exact path="/" component={PostsList} />
             <Route path="/new" component={NewPost} />
+            <Route path="/post/:id" component={Post} />
           </ContentWrapper>
         </Wrapper>
       </BrowserRouter>

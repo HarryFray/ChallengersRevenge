@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'react-apollo';
-import PostQuery from '../queries/PostQuery';
+import PostsQuery from '../queries/PostsQuery';
 import Post from './Post';
 
 class PostsList extends Component {
@@ -20,7 +20,7 @@ class PostsList extends Component {
   }
 }
 
-export default graphql(PostQuery)(PostsList)
+export default graphql(PostsQuery)(PostsList)
 
 const Wrapper = styled.div`
   display:flex;
