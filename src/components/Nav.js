@@ -84,7 +84,3 @@ const SolidGreyLine = styled.div`
   background-color:#379683;
 `;
 
-const SolidCreamLine = styled.div`
-  height:10px;
-  background-color:#edf5e1;
-`;
