@@ -20,10 +20,14 @@ restRouter.get('/books', (req, res) => {
   res.send('Hello World! -from rest')
 })
 
+restRouter.get('/goodbooks', (req, res) => {
+  res.send('second call!')
+})
+
 // api/graphql
 apiRouter.use('/graphql', expressGraphQL({
   schema,
-  graphiql: true,
+  graphiql: false,
 }));
 
 app.listen(8080, () => {

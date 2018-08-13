@@ -9,10 +9,14 @@ class MovieBookList extends Component {
 
   getBooks() {
     axios.get('http://localhost:8080/api/rest/books')
-      .then(function (response) {
-        console.log(response);
+      .then((response) => {
+        console.log(response)
+        axios.get('http://localhost:8080/api/rest/goodbooks')
+          .then((response) => {
+            console.log(response);
+          })
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }
