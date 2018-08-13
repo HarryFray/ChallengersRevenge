@@ -9,8 +9,6 @@ import Git from '../style/icons/git.png';
 import { Link } from 'react-router-dom';
 import query from '../queries/PostQuery';
 
-
-
 class Post extends Component {
 
   onPostLike(id, stars) {
@@ -28,19 +26,28 @@ class Post extends Component {
   }
 
   render(props) {
-    if (this.props.post === undefined) {
-      console.log(this.props.match.params.id)
+
+    const statePostList = this.props.post;
+    const stateSinglePost = this.props.location ? this.props.location.state.post : null;
+
+    if (!statePostList && !stateSinglePost) {
       return (<div>.....shit just a sec</div>)
     }
-    const { title, content, id, stars, date } = this.props.post;
+
+    const { title, content, id, stars, date } = statePostList || stateSinglePost;
 
     const day = date.slice(8, 10);
     const month = date.slice(4, 8);
     const year = date.slice(10, 15);
 
     return (
-      <div key={id}>
-        <Link to={`/post/${id}`}>
+      <div>
+        <Link to={{
+          pathname: `/post/${id}`,
+          state: {
+            post: this.props.post
+          }
+        }}>
           <h1 className='underline'>{title}</h1>
         </Link>
         <p>{content}</p>
@@ -70,10 +77,7 @@ mutation likePost($id: ID!){
 }
 `;
 
-export default graphql(mutation)
-graphql(query, {
-  options: (props) => { return { variables: { id: this.props.match.params.id } } }
-})(Post)
+export default graphql(mutation)(Post)
 
 const Upvotes = styled.div`
   display: flex;

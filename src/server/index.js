@@ -16,7 +16,7 @@ apiRouter.use('/rest', restRouter);
 // api/graphql
 apiRouter.use('/graphql', expressGraphQL({
   schema,
-  graphiql: true,
+  graphiql: false,
 }));
 
 app.listen(8080, () => {

@@ -64,6 +64,7 @@ form {
 
 .underline {
   display: inline-block;
+  color: black;
 }
 
 .underline:after {

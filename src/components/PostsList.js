@@ -7,7 +7,7 @@ import Post from './Post';
 class PostsList extends Component {
 
   render() {
-    if (!this.props.data.posts) { return <div>loading...</div> }
+    if (!this.props.data.posts) { return <div>loading....</div> }
     return (
       <Wrapper>
         <div>
