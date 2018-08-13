@@ -64,6 +64,7 @@ form {
 
 .underline {
   display: inline-block;
+  color: black;
 }
 
 .underline:after {
@@ -80,8 +81,9 @@ form {
   width: 100%;
 }
 
-
-
+.twitter {
+  width: 25px;
+}
 
 
 
