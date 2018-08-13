@@ -5,7 +5,7 @@ import '../style/style.css';
 import gql from 'graphql-tag';
 import FB from '../style/icons/facebook.svg';
 import link from '../style/icons/link.svg';
-import Git from '../style/icons/git.png';
+import twitter from '../style/icons/twitter.svg';
 import { Link } from 'react-router-dom';
 import query from '../queries/PostQuery';
 
@@ -27,7 +27,9 @@ class Post extends Component {
 
   render(props) {
 
+    // Multiple posts to render
     const statePostList = this.props.post;
+    // Single post to render
     const stateSinglePost = this.props.location ? this.props.location.state.post : null;
 
     if (!statePostList && !stateSinglePost) {
@@ -41,7 +43,7 @@ class Post extends Component {
     const year = date.slice(10, 15);
 
     return (
-      <div>
+      <Wrapper>
         <Link to={{
           pathname: `/post/${id}`,
           state: {
@@ -55,15 +57,15 @@ class Post extends Component {
         <h5>{`${month} ${day}, ${year}`}</h5>
         <Upvotes>
           <Star onClick={() => this.onPostLike(id, stars)} />
-          <StarCount>{stars}</StarCount>
+          <div>{stars}</div>
           <div style={{ 'flex': '1' }} />
           <div>
             <Icon src={FB} />
+            <Icon className="twitter" src={twitter} />
             <Icon src={link} />
-            <Icon src={Git} />
           </div>
         </Upvotes>
-      </div>
+      </Wrapper>
     )
   }
 }
@@ -78,6 +80,39 @@ mutation likePost($id: ID!){
 `;
 
 export default graphql(mutation)(Post)
+
+const Wrapper = styled.div`
+  display:flex;
+  flex-direction: column;
+  max-width: 1000px;
+  padding: 0 220px 0 220px;
+  color: black;
+hr {
+  border-width: .5px;
+  border-color: black;
+  margin-bottom: 5px;
+  width: 100%;
+}
+h1 {
+  letter-spacing: -1px;
+  margin-bottom: 0px;
+}
+h1:hover{
+  cursor: pointer;
+}
+
+h5 {
+  margin: 0 0 15px 0;
+}
+p {
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 1000px) {
+  padding: 0 100px 0 50px;
+}
+`;
 
 const Upvotes = styled.div`
   display: flex;
@@ -107,12 +142,9 @@ transition: 500ms;
 }
 `;
 
-const StarCount = styled.div`
-  margin-left: 0px;
-`;
-
 const Icon = styled.img`
  height: 30px;
  cursor: pointer;
  padding: 2px;
+ 
 `;
