@@ -8,6 +8,7 @@ import link from '../style/icons/link.svg';
 import twitter from '../style/icons/twitter.svg';
 import { Link } from 'react-router-dom';
 import query from '../queries/PostQuery';
+import PostQuery from '../queries/PostQuery';
 
 class Post extends Component {
 
@@ -22,7 +23,7 @@ class Post extends Component {
           __typename: 'PostType'
         }
       }
-    });
+    }).then(() => this.props.data.refetch());;
   }
 
   render(props) {
@@ -79,7 +80,12 @@ mutation likePost($id: ID!){
 }
 `;
 
-export default graphql(mutation)(Post)
+export default graphql(mutation)(
+  graphql(query, {
+    options: (props) => { return { variables: { id: props.post.id } } }
+  })(Post)
+)
+
 
 const Wrapper = styled.div`
   display:flex;
