@@ -16,7 +16,7 @@ class Content extends Component {
         <Wrapper >
           <Nav />
           <ContentWrapper>
-            <MovieBookList />
+
             <Route exact path="/" component={PostsList} />
             <Route path="/new" component={NewPost} />
             <Route path="/post/:id" component={Post} />

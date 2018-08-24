@@ -20,4 +20,10 @@ class PostsList extends Component {
   }
 }
 
+// PostsList.defaultProps = {
+//   data: {
+//     posts: [{ title: 'test', content: 'test', id: 'test', stars: '100', date: 'asdfasdf' }]
+//   }
+// };
+
 export default graphql(PostsQuery)(PostsList)

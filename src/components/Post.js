@@ -70,6 +70,12 @@ class Post extends Component {
   }
 }
 
+Post.defaultProps = {
+  post: { title: 'test', content: 'test', id: 'test', stars: '100', date: 'asdfasdf' },
+  location: { title: 'test', content: 'test', id: 'test', stars: '100', date: 'asdfasdf' }
+};
+
+
 const mutation = gql`
 mutation likePost($id: ID!){
   likePost(id: $id) {
