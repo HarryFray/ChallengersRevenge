@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { graphql } from 'react-apollo';
 import PostsQuery from '../queries/PostsQuery';
 import Post from './Post';
+import PropTypes from "prop-types";
+
 
 class PostsList extends Component {
   constructor(props) {

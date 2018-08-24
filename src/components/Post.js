@@ -7,6 +7,8 @@ import FB from '../style/icons/facebook.svg';
 import link from '../style/icons/link.svg';
 import twitter from '../style/icons/twitter.svg';
 import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
+
 
 class Post extends Component {
   constructor(props) {
@@ -30,7 +32,6 @@ class Post extends Component {
       }
     })
   }
-
 
   render(props) {
     const { title, content, id, stars, date } = this.state.post
@@ -66,6 +67,11 @@ class Post extends Component {
     )
   }
 }
+
+Post.propTypes = {
+  post: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
+};
 
 const mutation = gql`
 mutation likePost($id: ID!){
