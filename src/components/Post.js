@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { graphql } from 'react-apollo';
-import '../style/style.css';
 import gql from 'graphql-tag';
+import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
+import styled from 'styled-components';
+import '../style/style.css';
+
 import FB from '../style/icons/facebook.svg';
 import link from '../style/icons/link.svg';
 import twitter from '../style/icons/twitter.svg';
-import { Link } from 'react-router-dom';
-import PropTypes from "prop-types";
-
 
 class Post extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class Post extends Component {
         <Link to={{
           pathname: `/post/${id}`,
           state: {
-            post: this.state.post
+            post: this.props.post
           }
         }}>
           <h1 className='underline'>{title}</h1>
@@ -102,7 +102,6 @@ mutation likePost($id: ID!){
 `;
 
 export default graphql(mutation)(Post)
-
 
 const Wrapper = styled.div`
   display:flex;
