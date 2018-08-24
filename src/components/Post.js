@@ -33,6 +33,32 @@ class Post extends Component {
     })
   }
 
+  componentDidMount() {
+    if (this.props.location)
+      this.setState({
+        isList: false
+      })
+  }
+
+  renderTitle(title, id) {
+    if (this.state.isList) {
+      return (
+        <Link to={{
+          pathname: `/post/${id}`,
+          state: {
+            post: this.state.post
+          }
+        }}>
+          <h1 className='underline'>{title}</h1>
+        </Link>
+      )
+    } else {
+      return (<h1 className='underline'>{title}</h1>)
+    }
+  }
+
+
+
   render(props) {
     const { title, content, id, stars, date } = this.state.post
 
@@ -42,14 +68,7 @@ class Post extends Component {
 
     return (
       <Wrapper>
-        <Link to={{
-          pathname: `/post/${id}`,
-          state: {
-            post: this.state.post
-          }
-        }}>
-          <h1 className='underline'>{title}</h1>
-        </Link>
+        {this.renderTitle(title, id)}
         <p>{content}</p>
         <hr />
         <h5>{`${month} ${day}, ${year}`}</h5>
@@ -68,10 +87,10 @@ class Post extends Component {
   }
 }
 
-Post.propTypes = {
-  post: PropTypes.object.isRequired,
-  location: PropTypes.object.isRequired
-};
+// Post.propTypes = {
+//   post: PropTypes.object.isRequired,
+//   location: PropTypes.object.isRequired
+// };
 
 const mutation = gql`
 mutation likePost($id: ID!){
