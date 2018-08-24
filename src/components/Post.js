@@ -7,9 +7,15 @@ import FB from '../style/icons/facebook.svg';
 import link from '../style/icons/link.svg';
 import twitter from '../style/icons/twitter.svg';
 import { Link } from 'react-router-dom';
-import query from '../queries/PostQuery';
 
 class Post extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      post: this.props.post || this.props.location.state.post,
+      isList: true
+    }
+  }
 
   onPostLike(id, stars) {
     this.props.mutate({
@@ -22,21 +28,12 @@ class Post extends Component {
           __typename: 'PostType'
         }
       }
-    });
+    })
   }
 
+
   render(props) {
-
-    // Multiple posts to render
-    const statePostList = this.props.post;
-    // Single post to render
-    const stateSinglePost = this.props.location ? this.props.location.state.post : null;
-
-    if (!statePostList && !stateSinglePost) {
-      return (<div>.....shit just a sec</div>)
-    }
-
-    const { title, content, id, stars, date } = statePostList || stateSinglePost;
+    const { title, content, id, stars, date } = this.state.post
 
     const day = date.slice(8, 10);
     const month = date.slice(4, 8);
@@ -47,7 +44,7 @@ class Post extends Component {
         <Link to={{
           pathname: `/post/${id}`,
           state: {
-            post: this.props.post
+            post: this.state.post
           }
         }}>
           <h1 className='underline'>{title}</h1>
@@ -56,7 +53,7 @@ class Post extends Component {
         <hr />
         <h5>{`${month} ${day}, ${year}`}</h5>
         <Upvotes>
-          <Star onClick={() => this.onPostLike(id, stars)} />
+          <Star onClick={() => { this.onPostLike(id, stars) }} />
           <div>{stars}</div>
           <div style={{ 'flex': '1' }} />
           <div>
@@ -70,12 +67,6 @@ class Post extends Component {
   }
 }
 
-Post.defaultProps = {
-  post: { title: 'test', content: 'test', id: 'test', stars: '100', date: 'asdfasdf' },
-  location: { title: 'test', content: 'test', id: 'test', stars: '100', date: 'asdfasdf' }
-};
-
-
 const mutation = gql`
 mutation likePost($id: ID!){
   likePost(id: $id) {
@@ -86,6 +77,7 @@ mutation likePost($id: ID!){
 `;
 
 export default graphql(mutation)(Post)
+
 
 const Wrapper = styled.div`
   display:flex;

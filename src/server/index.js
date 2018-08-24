@@ -30,6 +30,6 @@ apiRouter.use('/graphql', expressGraphQL({
   graphiql: false,
 }));
 
-app.listen(4000, () => {
+app.listen(8080, () => {
   console.log('API local 4000');
 });

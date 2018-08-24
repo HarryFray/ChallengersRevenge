@@ -10,12 +10,14 @@ import './style/style.css';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000/api/graphql',
+  dataIdFromObject: object => object.id
 });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <div className='heading'>
       <Content />
+
       <Footer />
     </div>
   </ApolloProvider>

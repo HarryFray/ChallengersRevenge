@@ -39,13 +39,13 @@ module.exports = {
       }
     ]
   },
-  // devServer: {
-  //   port: 4000,
-  //   open: true,
-  //   proxy: {
-  //     "/api": "http://localhost:8080"
-  //   }
-  // },
+  devServer: {
+    port: 4000,
+    open: true,
+    proxy: {
+      "/api": "http://localhost:8080"
+    }
+  },
   plugins: [
     new CleanWebpackPlugin([outputDirectory]),
     new HtmlWebpackPlugin({ template: "./src/index.html" })

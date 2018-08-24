@@ -5,6 +5,10 @@ import PostsQuery from '../queries/PostsQuery';
 import Post from './Post';
 
 class PostsList extends Component {
+  constructor(props) {
+    super(props)
+
+  }
 
   render() {
     if (!this.props.data.posts) { return <div>loading....</div> }
@@ -12,18 +16,12 @@ class PostsList extends Component {
 
       <div>
         {this.props.data.posts.map((post) => {
-          return (<Post key={post.id} post={post}></Post>)
+          return (<Post key={post.id} post={post} ></Post>)
         })}
       </div>
 
     )
   }
 }
-
-// PostsList.defaultProps = {
-//   data: {
-//     posts: [{ title: 'test', content: 'test', id: 'test', stars: '100', date: 'asdfasdf' }]
-//   }
-// };
 
 export default graphql(PostsQuery)(PostsList)
