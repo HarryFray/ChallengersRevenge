@@ -10,6 +10,9 @@ import FB from '../style/icons/facebook.svg';
 import link from '../style/icons/link.svg';
 import twitter from '../style/icons/twitter.svg';
 
+const scroll = require('scroll')
+const page = require('scroll-doc')()
+
 class Post extends Component {
   constructor(props) {
     super(props)
@@ -38,6 +41,7 @@ class Post extends Component {
       this.setState({
         isList: false
       })
+    scroll.top(page, 0, { duration: 200 })
   }
 
   renderTitle(title, id) {
